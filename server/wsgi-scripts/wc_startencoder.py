@@ -263,7 +263,7 @@ def start_encoder(enc_params):
                       "num_b_frame":8,
                       "variants": [
                           {
-                            "codec": "libx264",
+                            "codec": "nvenc_h264",
                             "bitrate": "-1",
                             "video_width": "-1",
                             "video_height": "-1",

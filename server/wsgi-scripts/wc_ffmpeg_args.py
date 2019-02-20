@@ -79,7 +79,7 @@ def get_vcodec_args(enc_params, osi):
     if enc_params['video']['enable_cc'] == 'on':
         cc_flag = 1
 
-    if (video_codec == 'libx264'):
+    if (video_codec == 'nvenc_h264'):
         args += ' -preset%s %s' % (postfix, enc_params['video']['speed_preset'])
         args += ' -a53cc%s %d -nal-hrd%s %s -x264opts%s scenecut=-1:rc_lookahead=0' % \
                 (postfix, cc_flag, postfix, enc_params['video']['rate_control'], postfix)
