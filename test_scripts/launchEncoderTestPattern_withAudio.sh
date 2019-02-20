@@ -3,7 +3,7 @@
 
 x264enc='libx264 -tune zerolatency -profile:v high -preset ultrafast -bf 0 -refs 3 -sc_threshold 0'
 
-/ffmpeg/ffmpeg \
+ffmpeg \
     -hide_banner \
     -re \
     -f lavfi \
