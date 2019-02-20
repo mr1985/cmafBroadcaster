@@ -1,7 +1,7 @@
 #!/bin/bash
 # Encoding settings for x264 (CPU based encoder)
 
-x264enc='libx264 -tune zerolatency -profile:v high -preset ultrafast -bf 0 -refs 3 -sc_threshold 0'
+x264enc='h264_nvenc -profile:v high -bf 0 -refs 3 -sc_threshold 0'
 
 ffmpeg \
     -hide_banner \
