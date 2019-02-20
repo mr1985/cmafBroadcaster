@@ -292,7 +292,7 @@ def start_encoder(enc_params):
                     "dash_master_manifest" : "out.mpd"
                   },
                 }
-    ffmpeg_proc_name = './ffmpeg/ffmpeg '
+    ffmpeg_proc_name = 'ffmpeg '
 
     store_default_config(default_config, enc_params)
     status, msg = validate_encoder_params(enc_params)
