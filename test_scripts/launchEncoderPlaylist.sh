@@ -6,18 +6,15 @@ x264enc='h264_nvenc -profile:v high -bf 0 -refs 3 -sc_threshold 0'
 ffmpeg \
     -hide_banner \
     -re \
-    -f concat \
-    -safe 0 \
     -protocol_whitelist file,http,https,tcp,tls \
-    -i /tmp/playlists/playlist_url.txt \
+    -i BigBuckBunny.mp4 \
     -pix_fmt yuv420p \
     -map 0:v \
-    -c:v ${x264enc} \
+    -c:v h264_nvenc \
     -g 150 \
     -keyint_min 150 \
     -b:v 2000k \
-    -vf "fps=30,drawtext=fontfile=/tmp/utils/OpenSans-Bold.ttf:box=1:fontcolor=black:boxcolor=white:fontsize=100':x=40:y=400:textfile=/tmp/utils/text.txt" \
-    -seg_duration 5 \
+    -seg_duration 3 \
     -streaming 1 \
     -utc_timing_url "https://time.akamai.com/?iso" \
     -index_correction 1 \
@@ -28,6 +25,6 @@ ffmpeg \
     -extra_window_size 10 \
     -remove_at_exit 1 \
     -adaptation_sets "id=0,streams=v" \
-    -f dash \
+    -f dash \    
     $OUTPUT_FOLDER/manifest.mpd
     #>/dev/null 2>logs/encode.log &
