@@ -10,7 +10,7 @@ ffmpeg \
     -i BigBuckBunny.mp4 \
     -pix_fmt yuv420p \
     -map 0:v \
-    -c:v h264_nvenc \
+    -c:v h264_nvenc -profile:v high -bf 0 -refs 3 -sc_threshold 0 \
     -g 150 \
     -keyint_min 150 \
     -b:v 2000k \
