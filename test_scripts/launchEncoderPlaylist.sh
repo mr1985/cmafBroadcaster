@@ -17,7 +17,7 @@ x264enc='libx264 -tune zerolatency -profile:v baseline -preset ultrafast -bf 0 -
     -keyint_min 150 \
     -b:v 1500k \
     -vf "fps=30,drawtext=fontfile=/tmp/utils/OpenSans-Bold.ttf:box=1:fontcolor=black:boxcolor=white:fontsize=100':x=40:y=400:textfile=/tmp/utils/text.txt" \
-    -seg_duration 5 \
+    -seg_duration 4 \
     -streaming 1 \
     -utc_timing_url "https://time.akamai.com/?iso" \
     -index_correction 1 \
