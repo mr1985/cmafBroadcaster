@@ -263,7 +263,7 @@ def start_encoder(enc_params):
                       "num_b_frame":8,
                       "variants": [
                           {
-                            "codec": "nvenc_h264",
+                            "codec": "libx264",
                             "bitrate": "-1",
                             "video_width": "-1",
                             "video_height": "-1",
@@ -292,7 +292,7 @@ def start_encoder(enc_params):
                     "dash_master_manifest" : "out.mpd"
                   },
                 }
-    ffmpeg_proc_name = 'ffmpeg '
+    ffmpeg_proc_name = './ffmpeg/ffmpeg '
 
     store_default_config(default_config, enc_params)
     status, msg = validate_encoder_params(enc_params)

@@ -1,9 +1,9 @@
 #!/bin/bash
 # Encoding settings for x264 (CPU based encoder)
 
-x264enc='h264_nvenc  -profile:v high -bf 0 -refs 3 -sc_threshold 0'
+x264enc='libx264 -tune zerolatency -profile:v high -preset veryfast -bf 0 -refs 3 -sc_threshold 0'
 
-ffmpeg \
+/ffmpeg/ffmpeg \
     -hide_banner \
     -re \
     -f lavfi \
@@ -17,7 +17,7 @@ ffmpeg \
     -c:v ${x264enc} \
     -g 150 \
     -keyint_min 150 \
-    -b:v 2000k \
+    -b:v 4000k \
     -vf "fps=30,drawtext=fontfile=/tmp/utils/OpenSans-Bold.ttf:box=1:fontcolor=black:boxcolor=white:fontsize=100':x=40:y=400:textfile=/tmp/utils/text.txt" \
     -c:a aac -ar 48000 -ac 2 \
     -seg_duration 5 \
