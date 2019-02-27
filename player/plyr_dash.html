@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Plyr Dash</title>
+  <!-- Plyr style sheet -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/plyr/3.3.5/plyr.css" />
+</head>
+
+<body>
+  <!-- MPEG Dash support -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/dashjs/2.9.3/dash.all.debug.js"></script>
+  <!-- Plyr -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/plyr/3.3.5/plyr.min.js"></script>
+
+  <video preload id="player" controls crossorigin muted autoplay></video>
+
+</body>
+<script type="text/javascript">
+  var mpd = "//XX.XXX.XXX.XXX/static/manifest.mpd";
+  var dash = dashjs.MediaPlayer().create();
+  dash.setLowLatencyEnabled(true);      
+  dash.setFragmentLoaderRetryAttempts(50);
+  dash.setFragmentLoaderRetryInterval(250); // in milliseconds
+
+  //dash.getDebug().setLogToBrowserConsole(true);
+  //dash.getDebug().setLogLevel(dashjs.Debug.LOG_LEVEL_INFO);
+  
+  dash.setLiveDelay(3.0) //in seconds
+  dash.setCatchUpPlaybackRate(0);
+  dash.setLowLatencyMinDrift(0);
+  
+
+  
+  var video = document.querySelector('#player');
+
+  dash.initialize(video, mpd, true);
+
+  var player = new Plyr(video, {
+    resetOnEnd: true
+  });
+</script>
+
+</html>

@@ -4,7 +4,6 @@
 x264enc='libx264 -tune zerolatency -profile:v baseline -preset ultrafast -bf 0 -refs 3 -sc_threshold 0'
 
 /ffmpeg/ffmpeg \
-    -re -stream_loop -1 \
     -hide_banner \
     -re \
     -f concat \
