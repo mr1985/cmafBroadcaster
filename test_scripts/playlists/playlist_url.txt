@@ -1,6 +1,8 @@
 #https://github.com/FFmpeg/FFmpeg/blob/master/tests/extended.ffconcat
 
-file 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+#file 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+## 1 hour video 
+file 'http://s3-ap-northeast-1.amazonaws.com/rm-vr/low/opencv.mp4'
 duration 5.0
 # results in an error!
 #inpoint   00:00.00
