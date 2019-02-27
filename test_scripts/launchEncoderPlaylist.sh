@@ -4,6 +4,7 @@
 x264enc='libx264 -tune zerolatency -profile:v baseline -preset ultrafast -bf 0 -refs 3 -sc_threshold 0'
 
 /ffmpeg/ffmpeg \
+    -re -stream_loop -1 \
     -hide_banner \
     -re \
     -f concat \
@@ -13,11 +14,11 @@ x264enc='libx264 -tune zerolatency -profile:v baseline -preset ultrafast -bf 0 -
     -pix_fmt yuv420p \
     -map 0:v \
     -c:v ${x264enc} \
-    -g 120 \
-    -keyint_min 120 \
+    -g 90 \
+    -keyint_min 90 \
     -b:v 1500k \
     -vf "fps=30,drawtext=fontfile=/tmp/utils/OpenSans-Bold.ttf:box=1:fontcolor=black:boxcolor=white:fontsize=100':x=40:y=400:textfile=/tmp/utils/text.txt" \
-    -seg_duration 4 \
+    -seg_duration 3 \
     -streaming 1 \
     -utc_timing_url "https://time.akamai.com/?iso" \
     -index_correction 1 \
