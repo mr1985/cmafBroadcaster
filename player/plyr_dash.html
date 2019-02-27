@@ -18,7 +18,7 @@
 
 </body>
 <script type="text/javascript">
-  var mpd = "//XX.XXX.XXX.XXX/static/manifest.mpd";
+  var mpd = "http://XX.XX.XX.XX/static/manifest.mpd";
   var dash = dashjs.MediaPlayer().create();
   dash.setLowLatencyEnabled(true);      
   dash.setFragmentLoaderRetryAttempts(50);
@@ -27,9 +27,9 @@
   //dash.getDebug().setLogToBrowserConsole(true);
   //dash.getDebug().setLogLevel(dashjs.Debug.LOG_LEVEL_INFO);
   
-  dash.setLiveDelay(3.0) //in seconds
-  dash.setCatchUpPlaybackRate(0);
-  dash.setLowLatencyMinDrift(0);
+  dash.setLiveDelay(4) //in seconds
+  dash.setCatchUpPlaybackRate(0.5);
+  dash.setLowLatencyMinDrift(0.05);
   
 
   
@@ -37,9 +37,9 @@
 
   dash.initialize(video, mpd, true);
 
-  var player = new Plyr(video, {
-    resetOnEnd: true
-  });
+  // var player = new Plyr(video, {
+  //   resetOnEnd: true
+  // });
 </script>
 
 </html>
