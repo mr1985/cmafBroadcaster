@@ -18,6 +18,10 @@ fi
 #/tmp/launchEncoderTestPattern_withAudio.sh > /out/output.log 2>&1 < /dev/null &
 
 case "$STREAM" in
+"abr_hls")
+    echo "starting HLS ABR stream with audio"
+    /tmp/launchEncoderHlsAbrPlaylist.sh > /out/output.log 2>&1 < /dev/null &
+    ;;  
 "with_audio")
     echo "starting stream with audio"
     /tmp/launchEncoderTestPattern_withAudio.sh > /out/output.log 2>&1 < /dev/null &
